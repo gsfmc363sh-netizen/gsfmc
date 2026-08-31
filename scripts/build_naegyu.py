@@ -8,14 +8,16 @@ import json
 import re
 import sys
 
-# 28 내규, in document order. Names are the standalone body-heading form
-# (which equals the TOC entry except 유연근무제, whose body heading is
-# "유연근무제 운영내규" while the TOC lists "유연근무제 시행내규").
+ORG = '전남광주통합특별시광산구시설관리공단'
+TABLE_MARKER = '\x00TBL\x00'
+
+# 28 내규 in document order. Each body opens with an org-prefixed title
+# paragraph (ORG + name), which is how we locate section boundaries.
 TOC = [
     '인사규정 시행내규', '보수규정 시행내규', '감사규정 시행내규',
     '적극행정 면책 및 경고 등 처분에 관한 내규', '임직원행동강령에 관한 내규',
     '재정보증 시행내규', '회계규정 시행내규', '교육훈련 운영내규', '제안제도 운영내규',
-    '임금피크제 시행내규', '유연근무제 운영내규', '공용차량 관리 내규',
+    '임금피크제 시행내규', '유연근무제 시행내규', '공용차량 관리 내규',
     '체육시설 관리·운영 내규', '인권경영 이행내규', '직장 내 괴롭힘 예방 및 대응 시행내규',
     '노동자이사 후보 선거 관리 내규', '주차장 관리내규', '연구용역 관리 시행내규',
     '직제규정 시행내규', '사무전결처리 규정 시행내규', '휴직자 복무관리 시행내규',
@@ -24,13 +26,12 @@ TOC = [
     '스토킹 예방 시행내규',
 ]
 
-# The TOC label to show in the UI (uses the official 시행내규 wording).
-DISPLAY_OVERRIDE = {'유연근무제 운영내규': '유연근무제 시행내규'}
+DISPLAY_OVERRIDE = {}
 
 RE_CHAP = re.compile(r'^\s*제\s*(\d+)\s*장\s+(.+)$')
 RE_ART = re.compile(r'^\s*제\s*(\d+)(?:조의(\d+)|조)\s*(?:\((.*?)\))?\s*(.*)$', re.S)
 RE_BUCHIK = re.compile(r'^\s*부\s*칙')
-RE_BYEOL = re.compile(r'^\s*[【\[]?\s*별\s*표')
+RE_BYEOL = re.compile(r'^\s*[【\[]?\s*(별\s*표|별\s*지|서\s*식)')
 RE_REVISE = re.compile(r'<\s*(?:개정|신설|전문개정|본조신설|제정)\s*([0-9./,\s]+?)\s*>')
 
 
@@ -39,15 +40,14 @@ def norm(s):
 
 
 def find_ranges(paras, toc_start):
-    """Locate each 내규's start by its standalone body heading, searching
-    sequentially so identical repeated headings don't collide."""
     starts = []
     cursor = toc_start
     for name in TOC:
-        n = norm(name)
+        target = norm(ORG + name)
+        bare = norm(name)
         found = None
         for i in range(cursor, len(paras)):
-            if norm(paras[i]) == n:
+            if norm(paras[i]) in (target, bare):
                 found = i
                 break
         if found is None:
@@ -80,6 +80,9 @@ def parse_regulation(name, plist):
             i += 1
             while i < len(plist):
                 q = plist[i].rstrip('\n')
+                if plist[i].startswith(TABLE_MARKER):
+                    i += 1
+                    continue
                 if (RE_BUCHIK.match(q.replace(' ', '')[:3]) or RE_BUCHIK.match(q)) or RE_BYEOL.match(q):
                     break
                 if q.strip():
@@ -91,7 +94,24 @@ def parse_regulation(name, plist):
             continue
         if RE_BYEOL.match(p):
             mode = 'tail'
-            byeolpyo.append(p)
+            entry = {'title': p, 'tables': []}
+            i += 1
+            while i < len(plist):
+                q = plist[i]
+                if q.startswith(TABLE_MARKER):
+                    entry['tables'].append(q[len(TABLE_MARKER):])
+                    i += 1
+                    continue
+                qs = q.rstrip('\n')
+                if (RE_BUCHIK.match(qs.replace(' ', '')[:3]) or RE_BUCHIK.match(qs)
+                        or RE_BYEOL.match(qs)):
+                    break
+                if qs.strip():
+                    entry.setdefault('notes', []).append(qs)
+                i += 1
+            byeolpyo.append(entry)
+            continue
+        if p.startswith(TABLE_MARKER):
             i += 1
             continue
         mc = RE_CHAP.match(p)
@@ -115,6 +135,10 @@ def parse_regulation(name, plist):
             i += 1
             while i < len(plist):
                 q = plist[i].rstrip('\n')
+                if plist[i].startswith(TABLE_MARKER):
+                    lines.append(plist[i])
+                    i += 1
+                    continue
                 if not q.strip():
                     i += 1
                     continue
@@ -143,9 +167,7 @@ def parse_regulation(name, plist):
 
 
 def find_toc_start(paras):
-    """Front matter contains the TOC; body starts after it. Use the first
-    body heading (인사규정 시행내규) that is followed shortly by 제1조(목적)."""
-    first = norm(TOC[0])
+    first = norm(ORG + TOC[0])
     for i, s in enumerate(paras):
         if norm(s) == first:
             return i

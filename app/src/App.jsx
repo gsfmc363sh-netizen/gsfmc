@@ -2,14 +2,16 @@ import { useState, useMemo, useRef, useEffect } from 'react'
 import { Icon } from './icons.jsx'
 import AmendModal from './AmendModal.jsx'
 
-function highlightRevisions(body) {
+const TABLE_MARKER = '\u0000TBL\u0000'
+
+function highlightRevisions(text) {
   const nodes = []
   const re = /<\s*(개정|신설|전문개정|본조신설|삭제|제정)[^>]*>/g
   let last = 0
   let m
   let key = 0
-  while ((m = re.exec(body)) !== null) {
-    if (m.index > last) nodes.push(body.slice(last, m.index))
+  while ((m = re.exec(text)) !== null) {
+    if (m.index > last) nodes.push(text.slice(last, m.index))
     nodes.push(
       <em className="revmark" key={key++}>
         {m[0]}
@@ -17,8 +19,36 @@ function highlightRevisions(body) {
     )
     last = m.index + m[0].length
   }
-  if (last < body.length) nodes.push(body.slice(last))
+  if (last < text.length) nodes.push(text.slice(last))
   return nodes
+}
+
+// TABLE_MARKER precedes inline <table> HTML; split on it and peel the table off
+// each following segment so prose still gets revision highlighting.
+function renderBody(body) {
+  if (!body.includes(TABLE_MARKER)) return highlightRevisions(body)
+  const out = []
+  body.split(TABLE_MARKER).forEach((seg, i) => {
+    if (!seg) return
+    const end = seg.indexOf('</table>')
+    if (i > 0 && seg.startsWith('<table') && end !== -1) {
+      const html = seg.slice(0, end + '</table>'.length)
+      const rest = seg.slice(end + '</table>'.length)
+      out.push(<RegTable key={`t${i}`} html={html} />)
+      if (rest.trim()) out.push(...highlightRevisions(rest))
+    } else {
+      out.push(...highlightRevisions(seg))
+    }
+  })
+  return out
+}
+
+function RegTable({ html }) {
+  return (
+    <div className="tablewrap">
+      <div className="tablewrap__inner" dangerouslySetInnerHTML={{ __html: html }} />
+    </div>
+  )
 }
 
 function RegulationView({ reg, org, focusedArtNo, onPickAmend, articleRefs }) {
@@ -66,7 +96,7 @@ function RegulationView({ reg, org, focusedArtNo, onPickAmend, articleRefs }) {
                     개정 대조표
                   </button>
                 </div>
-                <div className="article__body">{highlightRevisions(art.body)}</div>
+                <div className="article__body">{renderBody(art.body)}</div>
               </div>
             )
           })}
@@ -88,11 +118,22 @@ function RegulationView({ reg, org, focusedArtNo, onPickAmend, articleRefs }) {
       {reg.byeolpyo.length > 0 && (
         <div className="subsec">
           <div className="subsec__title">별표 · 서식</div>
-          {reg.byeolpyo.map((b, i) => (
-            <div className="byeolpyo-item" key={i}>
-              {b}
-            </div>
-          ))}
+          {reg.byeolpyo.map((b, i) => {
+            const item = typeof b === 'string' ? { title: b, tables: [], notes: [] } : b
+            return (
+              <div className="byeolpyo-item" key={i}>
+                <div className="byeolpyo-item__title">{highlightRevisions(item.title)}</div>
+                {(item.tables || []).map((html, ti) => (
+                  <RegTable key={ti} html={html} />
+                ))}
+                {(item.notes || []).map((n, ni) => (
+                  <div className="byeolpyo-item__note" key={ni}>
+                    {n}
+                  </div>
+                ))}
+              </div>
+            )
+          })}
         </div>
       )}
     </div>

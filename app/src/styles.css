@@ -575,10 +575,66 @@ button {
 }
 
 .byeolpyo-item {
-  padding: 8px 0;
+  padding: 16px 0;
   font-size: 13.5px;
   color: var(--text-muted);
   border-bottom: 1px solid var(--line-soft);
+}
+
+.byeolpyo-item__title {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 10px;
+  word-break: keep-all;
+}
+
+.byeolpyo-item__title em.revmark {
+  font-style: normal;
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.byeolpyo-item__note {
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  white-space: pre-wrap;
+  word-break: keep-all;
+  margin-top: 6px;
+}
+
+/* Embedded tables */
+.tablewrap {
+  margin: 12px 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tablewrap table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: max-content;
+  font-size: 13px;
+  line-height: 1.6;
+  border-top: 2px solid var(--zinc-900);
+  background: #fff;
+}
+
+.tablewrap td,
+.tablewrap th {
+  border: 1px solid var(--zinc-300);
+  padding: 8px 10px;
+  vertical-align: middle;
+  text-align: center;
+  word-break: keep-all;
+  color: var(--text);
+}
+
+.tablewrap tr:first-child td {
+  background: var(--zinc-100);
+  font-weight: 600;
 }
 
 /* ── empty / notice ── */
