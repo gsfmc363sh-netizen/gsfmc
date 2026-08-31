@@ -99,8 +99,14 @@ function RegulationView({ reg, org, focusedArtNo, onPickAmend, articleRefs }) {
   )
 }
 
+const DATASETS = {
+  규정: 'regulations.json',
+  내규: 'naegyu.json',
+}
+
 export default function App() {
-  const [data, setData] = useState(null)
+  const [datasets, setDatasets] = useState({ 규정: null, 내규: null })
+  const [loadError, setLoadError] = useState(false)
   const [tab, setTab] = useState('규정')
   const [selectedRegId, setSelectedRegId] = useState(1)
   const [query, setQuery] = useState('')
@@ -112,12 +118,18 @@ export default function App() {
   const mainRef = useRef(null)
 
   useEffect(() => {
-    fetch(`${import.meta.env.BASE_URL}regulations.json`)
-      .then((r) => r.json())
-      .then(setData)
-      .catch(() => setData({ error: true }))
+    Promise.all(
+      Object.entries(DATASETS).map(([key, file]) =>
+        fetch(`${import.meta.env.BASE_URL}${file}`)
+          .then((r) => r.json())
+          .then((d) => [key, d]),
+      ),
+    )
+      .then((entries) => setDatasets(Object.fromEntries(entries)))
+      .catch(() => setLoadError(true))
   }, [])
 
+  const data = datasets[tab]
   const regulations = data && data.regulations ? data.regulations : []
 
   const selectedReg = useMemo(
@@ -156,6 +168,17 @@ export default function App() {
     if (mainRef.current) mainRef.current.scrollTop = 0
   }
 
+  function selectTab(t) {
+    if (t === tab) return
+    setTab(t)
+    setSelectedRegId(1)
+    setFocusedArtNo(null)
+    setQuery('')
+    setSidebarOpen(false)
+    setTreeOpen(false)
+    if (mainRef.current) mainRef.current.scrollTop = 0
+  }
+
   function gotoArticle(no) {
     setFocusedArtNo(no)
     setTreeOpen(false)
@@ -165,8 +188,18 @@ export default function App() {
 
   useEffect(() => {
     articleRefs.current = {}
-  }, [selectedRegId])
+  }, [selectedRegId, tab])
 
+  if (loadError) {
+    return (
+      <div className="app">
+        <div className="empty">
+          <h3>데이터를 불러오지 못했습니다</h3>
+          <p>페이지를 새로고침해 주세요.</p>
+        </div>
+      </div>
+    )
+  }
   if (!data) {
     return (
       <div className="app">
@@ -177,18 +210,6 @@ export default function App() {
       </div>
     )
   }
-  if (data.error) {
-    return (
-      <div className="app">
-        <div className="empty">
-          <h3>데이터를 불러오지 못했습니다</h3>
-          <p>페이지를 새로고침해 주세요.</p>
-        </div>
-      </div>
-    )
-  }
-
-  const totalArticles = regulations.reduce((s, r) => s + r.articleCount, 0)
 
   return (
     <div className="app">
@@ -212,7 +233,7 @@ export default function App() {
             <button
               key={t}
               className={`topbar__tab${tab === t ? ' is-active' : ''}`}
-              onClick={() => setTab(t)}
+              onClick={() => selectTab(t)}
             >
               {t}
             </button>
@@ -222,104 +243,79 @@ export default function App() {
         <span className="topbar__meta tabular">{data.basisDate}</span>
       </header>
 
-      {tab === '규정' ? (
-        <div className="body">
-          <aside className={`sidebar${sidebarOpen ? ' is-open' : ''}`}>
-            <div className="search">
-              <Icon name="search" size={16} />
-              <input
-                type="search"
-                placeholder="규정·조문 검색"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-              />
+      <div className="body">
+        <aside className={`sidebar${sidebarOpen ? ' is-open' : ''}`}>
+          <div className="search">
+            <Icon name="search" size={16} />
+            <input
+              type="search"
+              placeholder={`${tab}·조문 검색`}
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+            />
+          </div>
+          <nav className="reglist">
+            <div className="reglist__group-label">
+              {tab} {filteredRegs.length}건
             </div>
-            <nav className="reglist">
-              <div className="reglist__group-label">
-                규정 {filteredRegs.length}건
-              </div>
-              {filteredRegs.map((r) => (
-                <button
-                  key={r.id}
-                  className={`regitem${r.id === selectedRegId ? ' is-active' : ''}`}
-                  onClick={() => selectReg(r.id)}
-                >
-                  <span className="regitem__no tabular">{r.id}</span>
-                  <span className="regitem__name">{r.name}</span>
-                  <span className="regitem__count tabular">{r.articleCount}</span>
-                </button>
-              ))}
-            </nav>
-          </aside>
-
-          <nav className={`tree${treeOpen ? ' is-open' : ''}`}>
-            {selectedReg && (
-              <>
-                <div className="tree__reg-title">{selectedReg.name}</div>
-                <div className="tree__reg-meta tabular">
-                  {selectedReg.articleCount}개 조문 · 부칙 {selectedReg.buchik.length}건
-                </div>
-                {flatArticles.map((item, i) =>
-                  item.kind === 'chap' ? (
-                    <div className="tree__chap" key={`c${i}`}>
-                      제{item.num}장 {item.title}
-                    </div>
-                  ) : (
-                    <button
-                      key={`a${item.no}`}
-                      className={`tree__art${focusedArtNo === item.no ? ' is-active' : ''}`}
-                      onClick={() => gotoArticle(item.no)}
-                    >
-                      <span className="tree__art-no">제{item.no}조</span>
-                      <span>{item.title}</span>
-                    </button>
-                  ),
-                )}
-              </>
-            )}
+            {filteredRegs.map((r) => (
+              <button
+                key={r.id}
+                className={`regitem${r.id === selectedRegId ? ' is-active' : ''}`}
+                onClick={() => selectReg(r.id)}
+              >
+                <span className="regitem__no tabular">{r.id}</span>
+                <span className="regitem__name">{r.name}</span>
+                <span className="regitem__count tabular">{r.articleCount}</span>
+              </button>
+            ))}
           </nav>
+        </aside>
 
-          <main className="main" ref={mainRef}>
-            {selectedReg ? (
-              <RegulationView
-                reg={selectedReg}
-                org={data.org}
-                focusedArtNo={focusedArtNo}
-                onPickAmend={(art) => setAmend({ reg: selectedReg, art })}
-                articleRefs={articleRefs}
-              />
-            ) : (
-              <div className="empty">
-                <Icon name="book" size={48} />
-                <h3>규정을 선택하세요</h3>
+        <nav className={`tree${treeOpen ? ' is-open' : ''}`}>
+          {selectedReg && (
+            <>
+              <div className="tree__reg-title">{selectedReg.name}</div>
+              <div className="tree__reg-meta tabular">
+                {selectedReg.articleCount}개 조문 · 부칙 {selectedReg.buchik.length}건
               </div>
-            )}
-          </main>
-        </div>
-      ) : (
-        <div className="body">
-          <main className="main">
-            <div className="notice">
-              <h3>
-                <Icon name="lock" size={20} />
-                내규 합본은 문서 암호화로 열람이 제한됩니다
-              </h3>
-              <p>
-                제공된 <code>내규 합본.hwpx</code> 파일은 한글 문서 자체에 열람
-                암호(AES-256)가 설정되어 있어, 암호 없이는 본문을 추출할 수
-                없습니다.
-              </p>
-              <p>
-                내규 데이터를 이 사이트에 반영하려면 <strong>암호가 해제된
-                파일</strong> 또는 <strong>문서 열람 암호</strong>를 제공해
-                주세요. 규정 합본(배포용 문서)은 정상적으로 추출되어 현재{' '}
-                <strong>34개 규정 · {totalArticles}개 조문</strong>이
-                제공되고 있습니다.
-              </p>
+              {flatArticles.map((item, i) =>
+                item.kind === 'chap' ? (
+                  <div className="tree__chap" key={`c${i}`}>
+                    제{item.num}장 {item.title}
+                  </div>
+                ) : (
+                  <button
+                    key={`a${item.no}`}
+                    className={`tree__art${focusedArtNo === item.no ? ' is-active' : ''}`}
+                    onClick={() => gotoArticle(item.no)}
+                  >
+                    <span className="tree__art-no">제{item.no}조</span>
+                    <span>{item.title}</span>
+                  </button>
+                ),
+              )}
+            </>
+          )}
+        </nav>
+
+        <main className="main" ref={mainRef}>
+          {selectedReg ? (
+            <RegulationView
+              reg={selectedReg}
+              org={data.org}
+              focusedArtNo={focusedArtNo}
+              onPickAmend={(art) => setAmend({ reg: selectedReg, art })}
+              articleRefs={articleRefs}
+            />
+          ) : (
+            <div className="empty">
+              <Icon name="book" size={48} />
+              <h3>{tab}을 선택하세요</h3>
             </div>
-          </main>
-        </div>
-      )}
+          )}
+        </main>
+      </div>
 
       {amend && (
         <AmendModal
