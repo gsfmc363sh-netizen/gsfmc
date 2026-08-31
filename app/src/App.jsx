@@ -2,8 +2,6 @@ import { useState, useMemo, useRef, useEffect } from 'react'
 import { Icon } from './icons.jsx'
 import AmendModal from './AmendModal.jsx'
 
-const TABLE_MARKER = '\u0000TBL\u0000'
-
 function highlightRevisions(text) {
   const nodes = []
   const re = /<\s*(개정|신설|전문개정|본조신설|삭제|제정)[^>]*>/g
@@ -23,35 +21,32 @@ function highlightRevisions(text) {
   return nodes
 }
 
-// TABLE_MARKER precedes inline <table> HTML; split on it and peel the table off
-// each following segment so prose still gets revision highlighting.
-function renderBody(body) {
-  if (!body.includes(TABLE_MARKER)) return highlightRevisions(body)
-  const out = []
-  body.split(TABLE_MARKER).forEach((seg, i) => {
-    if (!seg) return
-    const end = seg.indexOf('</table>')
-    if (i > 0 && seg.startsWith('<table') && end !== -1) {
-      const html = seg.slice(0, end + '</table>'.length)
-      const rest = seg.slice(end + '</table>'.length)
-      out.push(<RegTable key={`t${i}`} html={html} />)
-      if (rest.trim()) out.push(...highlightRevisions(rest))
-    } else {
-      out.push(...highlightRevisions(seg))
-    }
-  })
-  return out
-}
-
-function RegTable({ html }) {
+function ByeolpyoItem({ item, pdfFile }) {
+  const [open, setOpen] = useState(false)
+  const base = import.meta.env.BASE_URL
+  const pdfHref = `${base}${pdfFile}#page=${item.pdfPage}`
   return (
-    <div className="tablewrap">
-      <div className="tablewrap__inner" dangerouslySetInnerHTML={{ __html: html }} />
+    <div className="byeolpyo-item">
+      <button className="byeolpyo-item__head" onClick={() => setOpen((v) => !v)}>
+        <Icon name={open ? 'minus' : 'plus'} size={14} />
+        <span className="byeolpyo-item__title">{highlightRevisions(item.title)}</span>
+      </button>
+      {open && (
+        <div className="byeolpyo-item__body">
+          {item.images.map((src, i) => (
+            <img key={i} className="byeolpyo-img" src={`${base}${src}`} alt={item.title} loading="lazy" />
+          ))}
+          <a className="btn byeolpyo-item__pdf" href={pdfHref} target="_blank" rel="noreferrer">
+            <Icon name="download" size={15} />
+            원문 PDF에서 보기 ({item.pdfPage}쪽)
+          </a>
+        </div>
+      )}
     </div>
   )
 }
 
-function RegulationView({ reg, org, focusedArtNo, onPickAmend, articleRefs }) {
+function RegulationView({ reg, org, pdfFile, focusedArtNo, onPickAmend, articleRefs }) {
   return (
     <div className="doc">
       <div className="doc__header">
@@ -96,7 +91,7 @@ function RegulationView({ reg, org, focusedArtNo, onPickAmend, articleRefs }) {
                     개정 대조표
                   </button>
                 </div>
-                <div className="article__body">{renderBody(art.body)}</div>
+                <div className="article__body">{highlightRevisions(art.body)}</div>
               </div>
             )
           })}
@@ -117,23 +112,10 @@ function RegulationView({ reg, org, focusedArtNo, onPickAmend, articleRefs }) {
 
       {reg.byeolpyo.length > 0 && (
         <div className="subsec">
-          <div className="subsec__title">별표 · 서식</div>
-          {reg.byeolpyo.map((b, i) => {
-            const item = typeof b === 'string' ? { title: b, tables: [], notes: [] } : b
-            return (
-              <div className="byeolpyo-item" key={i}>
-                <div className="byeolpyo-item__title">{highlightRevisions(item.title)}</div>
-                {(item.tables || []).map((html, ti) => (
-                  <RegTable key={ti} html={html} />
-                ))}
-                {(item.notes || []).map((n, ni) => (
-                  <div className="byeolpyo-item__note" key={ni}>
-                    {n}
-                  </div>
-                ))}
-              </div>
-            )
-          })}
+          <div className="subsec__title">별표 · 서식 · 별지</div>
+          {reg.byeolpyo.map((b, i) => (
+            <ByeolpyoItem key={i} item={b} pdfFile={pdfFile} />
+          ))}
         </div>
       )}
     </div>
@@ -385,6 +367,7 @@ export default function App() {
             <RegulationView
               reg={selectedReg}
               org={data.org}
+              pdfFile={PDF_FILES[tab]}
               focusedArtNo={focusedArtNo}
               onPickAmend={(art) => setAmend({ reg: selectedReg, art })}
               articleRefs={articleRefs}

@@ -12,6 +12,8 @@ const paths = {
   lock: <path d="M12 2a5 5 0 00-5 5v3H6a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2v-8a2 2 0 00-2-2h-1V7a5 5 0 00-5-5zm-3 8V7a3 3 0 116 0v3H9z" />,
   scale: <path d="M12 2 3 5v2h18V5l-9-3zM4 8l-2 8a4 4 0 008 0L8 8H4zm12 0-2 8a4 4 0 008 0l-2-8h-4zM11 8v11H6v2h12v-2h-5V8h-2z" />,
   download: <path d="M11 3v10.2l-3.6-3.6L6 11l6 6 6-6-1.4-1.4-3.6 3.6V3h-2zM5 19h14v2H5v-2z" />,
+  plus: <path d="M11 5v6H5v2h6v6h2v-6h6v-2h-6V5z" />,
+  minus: <path d="M5 11h14v2H5z" />,
 }
 
 export function Icon({ name, size = 20, className }) {
