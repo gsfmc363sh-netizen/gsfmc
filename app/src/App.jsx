@@ -145,10 +145,32 @@ const DATASETS = {
   내규: 'naegyu.json',
 }
 
+const PDF_FILES = {
+  규정: 'regulations.pdf',
+  내규: 'naegyu.pdf',
+}
+
+function PdfView({ tab, file }) {
+  const url = `${import.meta.env.BASE_URL}${file}`
+  return (
+    <div className="pdfview">
+      <div className="pdfview__bar">
+        <span className="pdfview__label">{tab} 원문 (표·서식 포함)</span>
+        <a className="btn" href={url} download>
+          <Icon name="download" size={16} />
+          PDF 내려받기
+        </a>
+      </div>
+      <iframe className="pdfview__frame" src={url} title={`${tab} 원문 PDF`} />
+    </div>
+  )
+}
+
 export default function App() {
   const [datasets, setDatasets] = useState({ 규정: null, 내규: null })
   const [loadError, setLoadError] = useState(false)
   const [tab, setTab] = useState('규정')
+  const [viewMode, setViewMode] = useState('article')
   const [selectedRegId, setSelectedRegId] = useState(1)
   const [query, setQuery] = useState('')
   const [focusedArtNo, setFocusedArtNo] = useState(null)
@@ -204,6 +226,7 @@ export default function App() {
 
   function selectReg(id) {
     setSelectedRegId(id)
+    setViewMode('article')
     setFocusedArtNo(null)
     setSidebarOpen(false)
     if (mainRef.current) mainRef.current.scrollTop = 0
@@ -221,6 +244,7 @@ export default function App() {
   }
 
   function gotoArticle(no) {
+    setViewMode('article')
     setFocusedArtNo(no)
     setTreeOpen(false)
     const el = articleRefs.current[no]
@@ -281,6 +305,20 @@ export default function App() {
           ))}
         </div>
         <div className="topbar__spacer" />
+        <div className="topbar__view">
+          <button
+            className={`topbar__viewbtn${viewMode === 'article' ? ' is-active' : ''}`}
+            onClick={() => setViewMode('article')}
+          >
+            조문
+          </button>
+          <button
+            className={`topbar__viewbtn${viewMode === 'pdf' ? ' is-active' : ''}`}
+            onClick={() => setViewMode('pdf')}
+          >
+            원문 PDF
+          </button>
+        </div>
         <span className="topbar__meta tabular">{data.basisDate}</span>
       </header>
 
@@ -341,7 +379,9 @@ export default function App() {
         </nav>
 
         <main className="main" ref={mainRef}>
-          {selectedReg ? (
+          {viewMode === 'pdf' ? (
+            <PdfView tab={tab} file={PDF_FILES[tab]} />
+          ) : selectedReg ? (
             <RegulationView
               reg={selectedReg}
               org={data.org}

@@ -148,6 +148,34 @@ button {
   flex: 1;
 }
 
+.topbar__view {
+  display: flex;
+  gap: 2px;
+  padding: 2px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.topbar__viewbtn {
+  background: transparent;
+  border: 0;
+  color: var(--zinc-400);
+  font-size: 13px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.topbar__viewbtn:hover {
+  color: #fff;
+}
+
+.topbar__viewbtn.is-active {
+  background: #fff;
+  color: var(--zinc-900);
+  font-weight: 500;
+}
+
 .topbar__meta {
   font-size: 12px;
   color: var(--zinc-500);
@@ -361,6 +389,39 @@ button {
   overflow-y: auto;
   min-width: 0;
   background: var(--canvas);
+}
+
+.pdfview {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.pdfview__bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  border-bottom: 1px solid var(--line);
+  background: var(--panel);
+  flex-shrink: 0;
+}
+
+.pdfview__label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.pdfview__bar .btn {
+  margin-left: auto;
+}
+
+.pdfview__frame {
+  flex: 1;
+  width: 100%;
+  border: 0;
+  background: var(--zinc-200);
 }
 
 .doc {
