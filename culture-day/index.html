@@ -3,51 +3,146 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>2026 문화의 날 신청·취합</title>
+  <title>2026 문화의 날 신청</title>
   <style>
-    *{box-sizing:border-box}body{margin:0;font-family:Pretendard,"Noto Sans KR",system-ui,sans-serif;background:#f4f7f6;color:#18352e}.top{background:#fff;border-bottom:1px solid #dfe9e5;position:sticky;top:0;z-index:10}.topin{max-width:1180px;margin:auto;padding:18px 24px;display:flex;justify-content:space-between;align-items:center}.brand{font-weight:800;color:#116f59;font-size:20px}.badge{background:#fff4d7;color:#7a5600;padding:7px 12px;border-radius:999px;font-weight:700;font-size:13px}.wrap{max-width:1180px;margin:30px auto 70px;padding:0 24px}.hero{background:linear-gradient(135deg,#0f6d57,#289b7a);color:#fff;border-radius:24px;padding:38px;display:grid;grid-template-columns:1.4fr 1fr;gap:30px;box-shadow:0 18px 50px rgba(16,78,64,.16)}h1{margin:6px 0 12px;font-size:38px}.eyebrow{font-weight:800;letter-spacing:.05em;font-size:13px;opacity:.85}.hero p{margin:0;color:#eafff8}.meta{display:grid;gap:12px}.meta div{background:rgba(255,255,255,.12);padding:18px;border-radius:16px}.meta span{display:block;font-size:12px;opacity:.8}.meta strong{display:block;margin-top:4px}.notice{margin:20px 0;background:#fff8df;border:1px solid #f0d98f;border-radius:14px;padding:16px 18px;color:#735b11}.schedule{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:24px 0}.card,.panel{background:#fff;border:1px solid #e2ebe7;border-radius:18px;box-shadow:0 8px 22px rgba(24,53,46,.05)}.card{padding:18px}.num{display:inline-block;background:#e9f7f2;color:#0d7158;padding:5px 9px;border-radius:999px;font-weight:800;font-size:12px}.card h3{font-size:16px;margin:11px 0 6px}.card p{font-size:13px;color:#61756e;margin:0}.tabs{display:flex;gap:8px;margin:26px 0 14px}.tabs button{border:1px solid #cddbd6;background:#fff;padding:12px 18px;border-radius:12px;font-weight:800;cursor:pointer}.tabs button.active{background:#0f7059;color:#fff;border-color:#0f7059}.panel{padding:26px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.field{display:grid;gap:7px}.field span{font-weight:800;font-size:14px}input,select{width:100%;padding:12px 13px;border:1px solid #cbd8d3;border-radius:10px;background:#fff;font-size:14px}.rowhead{display:flex;justify-content:space-between;align-items:center;margin-top:28px}.secondary,.primary,.remove{cursor:pointer;border-radius:10px;font-weight:800}.secondary{background:#f3f8f6;border:1px solid #cbd8d3;padding:10px 13px}.primary{width:100%;margin-top:20px;background:#0f7059;color:#fff;border:0;padding:15px}.remove{background:#fff1f1;color:#a33;border:1px solid #efcaca;padding:10px}.person{display:grid;grid-template-columns:42px 1fr 1fr 1.6fr auto;gap:10px;align-items:end;padding:14px 0;border-top:1px solid #edf2f0}.idx{width:34px;height:34px;display:grid;place-items:center;background:#eff7f4;border-radius:50%;font-weight:800}.message{margin-top:14px;padding:13px;border-radius:10px;background:#ecf8f3;color:#126b55;display:none}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:18px}.stat{background:#f6faf8;border-radius:14px;padding:18px}.stat span{display:block;color:#6e817a;font-size:13px}.stat strong{font-size:28px}.table{width:100%;border-collapse:collapse}.table th,.table td{padding:12px;border-bottom:1px solid #e8efec;text-align:left;font-size:14px}.table th{background:#f6faf8}.hide{display:none}@media(max-width:900px){.hero{grid-template-columns:1fr}.schedule{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.person{grid-template-columns:38px 1fr}.person .field,.person .remove{grid-column:2}.stats{grid-template-columns:1fr}.table{font-size:12px}}@media(max-width:560px){.schedule{grid-template-columns:1fr}h1{font-size:30px}.wrap{padding:0 14px}.hero,.panel{padding:20px}}
+    *{box-sizing:border-box}body{margin:0;font-family:Pretendard,"Noto Sans KR",system-ui,sans-serif;background:#f4f7f6;color:#18352e}.top{background:#fff;border-bottom:1px solid #dfe9e5;position:sticky;top:0;z-index:10}.topin{max-width:1180px;margin:auto;padding:18px 24px;display:flex;justify-content:space-between;align-items:center}.brand{font-weight:800;color:#116f59;font-size:20px}.badge{background:#e9f7f2;color:#0d7158;padding:7px 12px;border-radius:999px;font-weight:800;font-size:13px}.wrap{max-width:1180px;margin:30px auto 70px;padding:0 24px}.hero{background:linear-gradient(135deg,#0f6d57,#289b7a);color:#fff;border-radius:24px;padding:38px;display:grid;grid-template-columns:1.4fr 1fr;gap:30px;box-shadow:0 18px 50px rgba(16,78,64,.16)}h1{margin:6px 0 12px;font-size:38px}.eyebrow{font-weight:800;letter-spacing:.05em;font-size:13px;opacity:.85}.hero p{margin:0;color:#eafff8}.meta{display:grid;gap:12px}.meta div{background:rgba(255,255,255,.12);padding:18px;border-radius:16px}.meta span{display:block;font-size:12px;opacity:.8}.meta strong{display:block;margin-top:4px}.notice{margin:20px 0;background:#eaf8f2;border:1px solid #bfe3d7;border-radius:14px;padding:16px 18px;color:#185f4d}.schedule{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:24px 0}.card,.panel{background:#fff;border:1px solid #e2ebe7;border-radius:18px;box-shadow:0 8px 22px rgba(24,53,46,.05)}.card{padding:18px}.num{display:inline-block;background:#e9f7f2;color:#0d7158;padding:5px 9px;border-radius:999px;font-weight:800;font-size:12px}.card h3{font-size:16px;margin:11px 0 6px}.card p{font-size:13px;color:#61756e;margin:0}.panel{padding:26px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.field{display:grid;gap:7px}.field span{font-weight:800;font-size:14px}input,select{width:100%;padding:12px 13px;border:1px solid #cbd8d3;border-radius:10px;background:#fff;font-size:14px}.rowhead{display:flex;justify-content:space-between;align-items:center;margin-top:28px}.secondary,.primary,.remove{cursor:pointer;border-radius:10px;font-weight:800}.secondary{background:#f3f8f6;border:1px solid #cbd8d3;padding:10px 13px}.primary{width:100%;margin-top:20px;background:#0f7059;color:#fff;border:0;padding:15px}.primary:disabled{opacity:.55;cursor:not-allowed}.remove{background:#fff1f1;color:#a33;border:1px solid #efcaca;padding:10px}.person{display:grid;grid-template-columns:42px 1fr 1fr 1.6fr auto;gap:10px;align-items:end;padding:14px 0;border-top:1px solid #edf2f0}.idx{width:34px;height:34px;display:grid;place-items:center;background:#eff7f4;border-radius:50%;font-weight:800}.message{margin-top:14px;padding:13px;border-radius:10px;display:none}.message.ok{display:block;background:#ecf8f3;color:#126b55;border:1px solid #c6e6db}.message.error{display:block;background:#fff0f0;color:#9b3434;border:1px solid #efcccc}.privacy{margin-top:18px;padding:14px 16px;background:#f8faf9;border-radius:12px;color:#5e706a;font-size:13px;line-height:1.6}.helper{color:#6a7d76;font-size:13px}.admin-note{margin-top:16px;padding:14px 16px;background:#f8faf9;border-radius:12px;color:#536a62;font-size:13px}footer{max-width:1180px;margin:0 auto;padding:0 24px 40px;color:#74867f;font-size:13px}@media(max-width:900px){.hero{grid-template-columns:1fr}.schedule{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.person{grid-template-columns:38px 1fr}.person .field,.person .remove{grid-column:2}}@media(max-width:560px){.schedule{grid-template-columns:1fr}h1{font-size:30px}.wrap{padding:0 14px}.hero,.panel{padding:20px}}
   </style>
 </head>
 <body>
-  <header class="top"><div class="topin"><div class="brand">소통광산구시설관리공단</div><div class="badge">미리보기 · 브라우저 저장</div></div></header>
+  <header class="top"><div class="topin"><div class="brand">소통광산구시설관리공단</div><div class="badge">실제 접수 운영</div></div></header>
   <main class="wrap">
     <section class="hero">
-      <div><div class="eyebrow">2026년 10월 · 총 5회차</div><h1>문화의 날 참여 신청</h1><p>부서 담당자가 참여 직원을 한 번에 신청하고, 취합 현황을 확인할 수 있는 화면입니다.</p></div>
+      <div><div class="eyebrow">2026년 10월 · 총 5회차</div><h1>문화의 날 참여 신청</h1><p>부서 담당자가 참여 직원을 한 번에 신청하면 공단 취합용 Google Sheets에 자동 저장됩니다.</p></div>
       <div class="meta"><div><span>대상</span><strong>공단 전 직원(환경직 제외)</strong></div><div><span>장소</span><strong>월곡 고려인마을 · 광주비엔날레</strong></div></div>
     </section>
-    <div class="notice">현재 페이지는 디자인과 동작을 확인하는 미리보기입니다. 실제 전 부서 공동 취합은 데이터베이스 연결 후 사용합니다.</div>
+    <div class="notice"><strong>실제 접수 페이지입니다.</strong> 제출 버튼을 누르면 입력 내용이 부서별 취합 시트에 저장됩니다. 제출 전 이름, 직종, 희망 회차를 꼭 확인해 주세요.</div>
     <section class="schedule" id="schedule"></section>
-    <div class="tabs"><button id="tabApply" class="active">부서 신청</button><button id="tabDash">취합 현황</button></div>
-    <section class="panel" id="applyPanel">
+    <section class="panel">
       <h2>참여자 일괄 신청</h2>
-      <div class="grid"><label class="field"><span>부서명 *</span><input id="department" placeholder="예: 경영지원팀"></label><label class="field"><span>담당자 이름 *</span><input id="manager" placeholder="홍길동"></label><label class="field"><span>담당자 연락처 *</span><input id="phone" placeholder="010-0000-0000"></label></div>
-      <div class="rowhead"><div><h3>신청자 명단</h3><small>직원별 직종과 희망 회차를 선택하세요.</small></div><button class="secondary" id="addBtn">+ 신청자 추가</button></div>
-      <div id="people"></div><div class="message" id="msg"></div><button class="primary" id="submitBtn">신청 제출</button>
-    </section>
-    <section class="panel hide" id="dashPanel">
-      <h2>전 부서 참여 현황</h2>
-      <div class="stats"><div class="stat"><span>총 신청 인원</span><strong id="total">0</strong></div><div class="stat"><span>제출 부서</span><strong id="deptCount">0</strong></div><div class="stat"><span>회차 수</span><strong>5</strong></div></div>
-      <table class="table"><thead><tr><th>부서</th><th>신청자</th><th>직종</th><th>회차</th><th>프로그램</th></tr></thead><tbody id="tbody"></tbody></table>
+      <p class="helper">부서 담당자 1명이 해당 부서 신청자를 한 번에 등록할 수 있습니다.</p>
+      <div class="grid"><label class="field"><span>부서명 *</span><input id="department" placeholder="예: 경영지원팀"></label><label class="field"><span>담당자 이름 *</span><input id="manager" placeholder="홍길동"></label><label class="field"><span>담당자 연락처 *</span><input id="phone" placeholder="010-0000-0000" inputmode="tel"></label></div>
+      <div class="rowhead"><div><h3>신청자 명단</h3><small>직원별 직종과 희망 회차를 선택하세요.</small></div><button class="secondary" id="addBtn" type="button">+ 신청자 추가</button></div>
+      <div id="people"></div>
+      <div class="privacy">입력된 정보는 문화의 날 신청 접수·참여자 확인·일정 안내를 위한 취합 목적으로 사용됩니다. 실제 운영 시 개인정보 보유기간과 파기 기준은 공단 내부 기준에 따라 관리해 주세요.</div>
+      <div class="message" id="msg"></div>
+      <button class="primary" id="submitBtn" type="button">신청 제출</button>
+      <div class="admin-note">※ 전체 신청 현황과 부서별 취합 내용은 관리자용 Google Sheets에서 확인합니다.</div>
     </section>
   </main>
+  <footer>© 소통광산구시설관리공단 · 2026 문화의 날 신청 시스템</footer>
+
+  <iframe name="submitTarget" id="submitTarget" style="display:none"></iframe>
+  <form id="bridgeForm" method="post" target="submitTarget" action="https://script.google.com/macros/s/AKfycbxpCVBlk8nt9o0Yg4Jtw3dzg6rSR4z-ArqOBQJ7xc9J19EL6mb3wRk7KbuHlDVORM7T/exec" style="display:none">
+    <input type="hidden" name="payload" id="payloadInput">
+  </form>
+
 <script>
 const S=[
  {n:1,d:'10. 2.(금)',p:'광주비엔날레 전시',v:'광주비엔날레전시관(북구 비엔날레로 111)'},
  {n:2,d:'10. 8.(목)',p:'세계음식 만들기 체험',v:'월곡 고려인마을'},
  {n:3,d:'10. 16.(금)',p:'광주비엔날레 전시',v:'광주비엔날레전시관'},
  {n:4,d:'10. 23.(금)',p:'세계음식 만들기 체험',v:'월곡 고려인마을'},
- {n:5,d:'10. 28.(수)',p:'광주비엔날레 전시',v:'광주비엔날레전시관'}];
+ {n:5,d:'10. 28.(수)',p:'광주비엔날레 전시',v:'광주비엔날레전시관'}
+];
 const types=['일반직','공무직','임원','기타','환경직(신청 제외)'];
-document.querySelector('#schedule').innerHTML=S.map(x=>`<article class="card"><span class="num">${x.n}회차</span><h3>${x.d} · ${x.p}</h3><p>${x.v}</p></article>`).join('');
-let idx=0;const people=document.querySelector('#people');
-function add(){idx++;const el=document.createElement('div');el.className='person';el.innerHTML=`<div class="idx">${idx}</div><label class="field"><span>이름</span><input class="name" placeholder="직원 이름"></label><label class="field"><span>직종</span><select class="type"><option value="">선택</option>${types.map(t=>`<option>${t}</option>`).join('')}</select></label><label class="field"><span>희망 회차</span><select class="session"><option value="">선택</option>${S.map(x=>`<option value="${x.n}">${x.n}회차 · ${x.d} · ${x.p}</option>`).join('')}</select></label><button class="remove">삭제</button>`;el.querySelector('.remove').onclick=()=>{if(document.querySelectorAll('.person').length>1)el.remove()};people.appendChild(el)}
-add();document.querySelector('#addBtn').onclick=add;
-const key='culture-day-preview';function load(){try{return JSON.parse(localStorage.getItem(key)||'[]')}catch{return[]}}
-function render(){const a=load();document.querySelector('#total').textContent=a.length;document.querySelector('#deptCount').textContent=new Set(a.map(x=>x.department)).size;document.querySelector('#tbody').innerHTML=a.length?a.map(x=>`<tr><td>${x.department}</td><td>${x.name}</td><td>${x.type}</td><td>${x.session}회차</td><td>${S.find(s=>s.n==x.session)?.p||''}</td></tr>`).join(''):'<tr><td colspan="5">아직 신청 내역이 없습니다.</td></tr>'}
-function tab(which){document.querySelector('#applyPanel').classList.toggle('hide',which!=='a');document.querySelector('#dashPanel').classList.toggle('hide',which!=='d');document.querySelector('#tabApply').classList.toggle('active',which==='a');document.querySelector('#tabDash').classList.toggle('active',which==='d');if(which==='d')render()}
-document.querySelector('#tabApply').onclick=()=>tab('a');document.querySelector('#tabDash').onclick=()=>tab('d');
-document.querySelector('#submitBtn').onclick=()=>{const department=document.querySelector('#department').value.trim(),manager=document.querySelector('#manager').value.trim(),phone=document.querySelector('#phone').value.trim(),rows=[...document.querySelectorAll('.person')];const msg=document.querySelector('#msg');if(!department||!manager||!phone){msg.style.display='block';msg.textContent='부서명, 담당자 이름, 연락처를 입력해 주세요.';return}const out=[];for(const r of rows){const name=r.querySelector('.name').value.trim(),type=r.querySelector('.type').value,session=r.querySelector('.session').value;if(!name||!type||!session){msg.style.display='block';msg.textContent='모든 신청자의 이름, 직종, 희망 회차를 입력해 주세요.';return}if(type.includes('환경직')){msg.style.display='block';msg.textContent='환경직은 이번 신청 대상에서 제외되어 있습니다.';return}out.push({department,manager,phone,name,type,session})}localStorage.setItem(key,JSON.stringify([...out,...load()]));msg.style.display='block';msg.textContent=`${department} ${out.length}명 신청이 미리보기 저장소에 등록되었습니다.`;render()};
-render();
+const schedule=document.querySelector('#schedule');
+schedule.innerHTML=S.map(x=>`<article class="card"><span class="num">${x.n}회차</span><h3>${x.d} · ${x.p}</h3><p>${x.v}</p></article>`).join('');
+
+let idx=0;
+const people=document.querySelector('#people');
+const msg=document.querySelector('#msg');
+const submitBtn=document.querySelector('#submitBtn');
+const bridgeForm=document.querySelector('#bridgeForm');
+const payloadInput=document.querySelector('#payloadInput');
+const submitTarget=document.querySelector('#submitTarget');
+let waitingForResponse=false;
+
+function showMessage(text,type='ok'){
+  msg.className=`message ${type}`;
+  msg.textContent=text;
+}
+
+function renumber(){
+  [...document.querySelectorAll('.person')].forEach((row,i)=>{
+    row.querySelector('.idx').textContent=i+1;
+  });
+}
+
+function add(){
+  idx++;
+  const el=document.createElement('div');
+  el.className='person';
+  el.innerHTML=`<div class="idx"></div><label class="field"><span>이름</span><input class="name" placeholder="직원 이름"></label><label class="field"><span>직종</span><select class="type"><option value="">선택</option>${types.map(t=>`<option>${t}</option>`).join('')}</select></label><label class="field"><span>희망 회차</span><select class="session"><option value="">선택</option>${S.map(x=>`<option value="${x.n}">${x.n}회차 · ${x.d} · ${x.p}</option>`).join('')}</select></label><button class="remove" type="button">삭제</button>`;
+  el.querySelector('.remove').onclick=()=>{
+    if(document.querySelectorAll('.person').length>1){el.remove();renumber();}
+  };
+  people.appendChild(el);
+  renumber();
+}
+add();
+document.querySelector('#addBtn').onclick=add;
+
+function resetParticipantRows(){
+  people.innerHTML='';
+  idx=0;
+  add();
+}
+
+submitTarget.addEventListener('load',()=>{
+  if(!waitingForResponse) return;
+  waitingForResponse=false;
+  submitBtn.disabled=false;
+  submitBtn.textContent='신청 제출';
+  showMessage('신청이 전송되었습니다. 관리자 취합 시트에서 접수 내역을 확인할 수 있습니다.','ok');
+  resetParticipantRows();
+  window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});
+});
+
+document.querySelector('#submitBtn').onclick=()=>{
+  const department=document.querySelector('#department').value.trim();
+  const manager=document.querySelector('#manager').value.trim();
+  const phone=document.querySelector('#phone').value.trim();
+  const rows=[...document.querySelectorAll('.person')];
+
+  if(!department||!manager||!phone){
+    showMessage('부서명, 담당자 이름, 담당자 연락처를 모두 입력해 주세요.','error');
+    return;
+  }
+
+  const participants=[];
+  for(const r of rows){
+    const name=r.querySelector('.name').value.trim();
+    const type=r.querySelector('.type').value;
+    const session=r.querySelector('.session').value;
+    if(!name||!type||!session){
+      showMessage('모든 신청자의 이름, 직종, 희망 회차를 입력해 주세요.','error');
+      return;
+    }
+    if(type.includes('환경직')){
+      showMessage('환경직은 이번 신청 대상에서 제외되어 있습니다.','error');
+      return;
+    }
+    participants.push({name,type,session:Number(session)});
+  }
+
+  if(!confirm(`${department} 신청자 ${participants.length}명을 제출하시겠습니까?`)) return;
+
+  payloadInput.value=JSON.stringify({department,manager,phone,participants});
+  waitingForResponse=true;
+  submitBtn.disabled=true;
+  submitBtn.textContent='전송 중...';
+  showMessage('신청 내용을 전송하고 있습니다. 잠시만 기다려 주세요.','ok');
+  bridgeForm.submit();
+
+  setTimeout(()=>{
+    if(waitingForResponse){
+      waitingForResponse=false;
+      submitBtn.disabled=false;
+      submitBtn.textContent='신청 제출';
+      showMessage('전송 요청은 완료되었습니다. 관리자 취합 시트에서 저장 여부를 확인해 주세요.','ok');
+    }
+  },8000);
+};
 </script>
 </body>
 </html>
