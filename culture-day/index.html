@@ -5,174 +5,144 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>2026 문화의 날 신청</title>
   <style>
-    *{box-sizing:border-box}body{margin:0;font-family:Pretendard,"Noto Sans KR",system-ui,sans-serif;background:#f4f7f6;color:#18352e}.top{background:#fff;border-bottom:1px solid #dfe9e5;position:sticky;top:0;z-index:10}.topin{max-width:1180px;margin:auto;padding:18px 24px;display:flex;justify-content:space-between;align-items:center}.brand{font-weight:800;color:#116f59;font-size:20px}.badge{background:#e9f7f2;color:#0d7158;padding:7px 12px;border-radius:999px;font-weight:800;font-size:13px}.wrap{max-width:1180px;margin:30px auto 70px;padding:0 24px}.hero{background:linear-gradient(135deg,#0f6d57,#289b7a);color:#fff;border-radius:24px;padding:38px;display:grid;grid-template-columns:1.4fr 1fr;gap:30px;box-shadow:0 18px 50px rgba(16,78,64,.16)}h1{margin:6px 0 12px;font-size:38px}.eyebrow{font-weight:800;letter-spacing:.05em;font-size:13px;opacity:.85}.hero p{margin:0;color:#eafff8}.meta{display:grid;gap:12px}.meta div{background:rgba(255,255,255,.12);padding:18px;border-radius:16px}.meta span{display:block;font-size:12px;opacity:.8}.meta strong{display:block;margin-top:4px}.notice{margin:20px 0;background:#eaf8f2;border:1px solid #bfe3d7;border-radius:14px;padding:16px 18px;color:#185f4d}.schedule{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:24px 0}.card,.panel{background:#fff;border:1px solid #e2ebe7;border-radius:18px;box-shadow:0 8px 22px rgba(24,53,46,.05)}.card{padding:18px}.num{display:inline-block;background:#e9f7f2;color:#0d7158;padding:5px 9px;border-radius:999px;font-weight:800;font-size:12px}.card h3{font-size:16px;margin:11px 0 6px}.card p{font-size:13px;color:#61756e;margin:0}.panel{padding:26px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.field{display:grid;gap:7px}.field span{font-weight:800;font-size:14px}input,select{width:100%;padding:12px 13px;border:1px solid #cbd8d3;border-radius:10px;background:#fff;font-size:14px}.rowhead{display:flex;justify-content:space-between;align-items:center;margin-top:28px}.secondary,.primary,.remove,.modebtn,.downloadbtn,.applybtn{cursor:pointer;border-radius:10px;font-weight:800}.secondary{background:#f3f8f6;border:1px solid #cbd8d3;padding:10px 13px}.primary{width:100%;margin-top:20px;background:#0f7059;color:#fff;border:0;padding:15px}.primary:disabled{opacity:.55;cursor:not-allowed}.remove{background:#fff1f1;color:#a33;border:1px solid #efcaca;padding:10px}.person{display:grid;grid-template-columns:42px 1fr 1fr 1.6fr auto;gap:10px;align-items:end;padding:14px 0;border-top:1px solid #edf2f0}.idx{width:34px;height:34px;display:grid;place-items:center;background:#eff7f4;border-radius:50%;font-weight:800}.message{margin-top:14px;padding:13px;border-radius:10px;display:none}.message.ok{display:block;background:#ecf8f3;color:#126b55;border:1px solid #c6e6db}.message.error{display:block;background:#fff0f0;color:#9b3434;border:1px solid #efcccc}.privacy{margin-top:18px;padding:14px 16px;background:#f8faf9;border-radius:12px;color:#5e706a;font-size:13px;line-height:1.6}.helper{color:#6a7d76;font-size:13px}.admin-note{margin-top:16px;padding:14px 16px;background:#f8faf9;border-radius:12px;color:#536a62;font-size:13px}.modebox{margin-top:26px;border:1px solid #dbe7e2;border-radius:16px;padding:18px;background:#fbfdfc}.mode-title{font-weight:800;margin-bottom:10px}.mode-tabs{display:flex;gap:8px;flex-wrap:wrap}.modebtn{border:1px solid #cad8d3;background:#fff;padding:10px 14px}.modebtn.active{background:#0f7059;color:#fff;border-color:#0f7059}.uploadbox{margin-top:16px;padding:18px;border:1px dashed #b8cec5;border-radius:14px;background:#f8fbfa}.upload-actions{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.downloadbtn{border:1px solid #bfd3cb;background:#fff;padding:10px 12px;color:#255a4c}.filepick{display:block;margin:12px 0}.filepick input{padding:10px;background:#fff}.template-note{font-size:13px;color:#60746d;line-height:1.65}.template-highlight{display:inline-block;margin-top:6px;padding:5px 8px;border-radius:7px;background:#eaf3ff;color:#24538b;font-weight:700}.preview-wrap{margin-top:16px;overflow:auto}.preview-table{width:100%;border-collapse:collapse;background:#fff}.preview-table th,.preview-table td{border-bottom:1px solid #e4ece9;padding:10px 11px;text-align:left;font-size:13px;white-space:nowrap}.preview-table th{background:#f2f8f5}.bad{color:#a33;font-weight:800}.good{color:#0f7059;font-weight:800}.applybtn{margin-top:12px;background:#0f7059;color:#fff;border:0;padding:11px 15px}.applybtn:disabled{opacity:.5;cursor:not-allowed}.hidden{display:none!important}footer{max-width:1180px;margin:0 auto;padding:0 24px 40px;color:#74867f;font-size:13px}@media(max-width:900px){.hero{grid-template-columns:1fr}.schedule{grid-template-columns:1fr 1fr}.grid{grid-template-columns:1fr}.person{grid-template-columns:38px 1fr}.person .field,.person .remove{grid-column:2}}@media(max-width:560px){.schedule{grid-template-columns:1fr}h1{font-size:30px}.wrap{padding:0 14px}.hero,.panel{padding:20px}}
+    *{box-sizing:border-box}body{margin:0;font-family:Pretendard,"Noto Sans KR",system-ui,sans-serif;background:#f4f7f6;color:#18352e}.top{background:#fff;border-bottom:1px solid #dfe9e5;position:sticky;top:0;z-index:10}.topin{max-width:1180px;margin:auto;padding:18px 24px;display:flex;justify-content:space-between;align-items:center}.brand{font-weight:800;color:#116f59;font-size:20px}.badge{background:#e9f7f2;color:#0d7158;padding:7px 12px;border-radius:999px;font-weight:800;font-size:13px}.wrap{max-width:1180px;margin:30px auto 70px;padding:0 24px}.hero{background:linear-gradient(135deg,#0f6d57,#289b7a);color:#fff;border-radius:24px;padding:38px;display:grid;grid-template-columns:1.4fr 1fr;gap:30px;box-shadow:0 18px 50px rgba(16,78,64,.16)}h1{margin:6px 0 12px;font-size:38px}.eyebrow{font-weight:800;letter-spacing:.05em;font-size:13px;opacity:.85}.hero p{margin:0;color:#eafff8}.meta{display:grid;gap:12px}.meta div{background:rgba(255,255,255,.12);padding:18px;border-radius:16px}.meta span{display:block;font-size:12px;opacity:.8}.meta strong{display:block;margin-top:4px}.notice{margin:20px 0;background:#eaf8f2;border:1px solid #bfe3d7;border-radius:14px;padding:16px 18px;color:#185f4d}.schedule{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:24px 0}.card,.panel{background:#fff;border:1px solid #e2ebe7;border-radius:18px;box-shadow:0 8px 22px rgba(24,53,46,.05)}.card{padding:18px}.num{display:inline-block;background:#e9f7f2;color:#0d7158;padding:5px 9px;border-radius:999px;font-weight:800;font-size:12px}.card h3{font-size:16px;margin:11px 0 6px}.card p{font-size:13px;color:#61756e;margin:0}.panel{padding:26px}.app-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}.app-tab,.modebtn,.secondary,.primary,.remove,.downloadbtn,.applybtn{cursor:pointer;border-radius:10px;font-weight:800}.app-tab{padding:11px 16px;border:1px solid #cad8d3;background:#fff}.app-tab.active{background:#0f7059;color:#fff;border-color:#0f7059}.lookup{background:#f8fbfa;border:1px solid #dce8e3;border-radius:15px;padding:18px;margin-bottom:20px}.lookup-grid{display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:end}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.field{display:grid;gap:7px}.field span{font-weight:800;font-size:14px}input,select{width:100%;padding:12px 13px;border:1px solid #cbd8d3;border-radius:10px;background:#fff;font-size:14px}.rowhead{display:flex;justify-content:space-between;align-items:center;margin-top:28px}.secondary{background:#f3f8f6;border:1px solid #cbd8d3;padding:10px 13px}.primary{width:100%;margin-top:20px;background:#0f7059;color:#fff;border:0;padding:15px}.primary:disabled{opacity:.55;cursor:not-allowed}.remove{background:#fff1f1;color:#a33;border:1px solid #efcaca;padding:10px}.person{display:grid;grid-template-columns:42px 1fr 1fr 1.6fr auto;gap:10px;align-items:end;padding:14px 0;border-top:1px solid #edf2f0}.idx{width:34px;height:34px;display:grid;place-items:center;background:#eff7f4;border-radius:50%;font-weight:800}.message{margin-top:14px;padding:13px;border-radius:10px;display:none}.message.ok{display:block;background:#ecf8f3;color:#126b55;border:1px solid #c6e6db}.message.error{display:block;background:#fff0f0;color:#9b3434;border:1px solid #efcccc}.receipt{display:none;margin-top:14px;padding:16px;border-radius:12px;background:#fff8df;border:1px solid #efdd9d;color:#5b4a13}.receipt strong{display:block;font-size:18px;margin-top:4px;word-break:break-all}.privacy{margin-top:18px;padding:14px 16px;background:#f8faf9;border-radius:12px;color:#5e706a;font-size:13px;line-height:1.6}.helper{color:#6a7d76;font-size:13px}.admin-note{margin-top:16px;padding:14px 16px;background:#f8faf9;border-radius:12px;color:#536a62;font-size:13px}.modebox{margin-top:26px;border:1px solid #dbe7e2;border-radius:16px;padding:18px;background:#fbfdfc}.mode-title{font-weight:800;margin-bottom:10px}.mode-tabs{display:flex;gap:8px;flex-wrap:wrap}.modebtn{border:1px solid #cad8d3;background:#fff;padding:10px 14px}.modebtn.active{background:#0f7059;color:#fff;border-color:#0f7059}.uploadbox{margin-top:16px;padding:18px;border:1px dashed #b8cec5;border-radius:14px;background:#f8fbfa}.upload-actions{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.downloadbtn{border:1px solid #bfd3cb;background:#fff;padding:10px 12px;color:#255a4c}.filepick{display:block;margin:12px 0}.filepick input{padding:10px;background:#fff}.template-note{font-size:13px;color:#60746d;line-height:1.65}.template-highlight{display:inline-block;margin-top:6px;padding:5px 8px;border-radius:7px;background:#eaf3ff;color:#24538b;font-weight:700}.preview-wrap{margin-top:16px;overflow:auto}.preview-table{width:100%;border-collapse:collapse;background:#fff}.preview-table th,.preview-table td{border-bottom:1px solid #e4ece9;padding:10px 11px;text-align:left;font-size:13px;white-space:nowrap}.preview-table th{background:#f2f8f5}.bad{color:#a33;font-weight:800}.good{color:#0f7059;font-weight:800}.applybtn{margin-top:12px;background:#0f7059;color:#fff;border:0;padding:11px 15px}.applybtn:disabled{opacity:.5;cursor:not-allowed}.hidden{display:none!important}footer{max-width:1180px;margin:0 auto;padding:0 24px 40px;color:#74867f;font-size:13px}@media(max-width:900px){.hero{grid-template-columns:1fr}.schedule{grid-template-columns:1fr 1fr}.grid,.lookup-grid{grid-template-columns:1fr}.person{grid-template-columns:38px 1fr}.person .field,.person .remove{grid-column:2}}@media(max-width:560px){.schedule{grid-template-columns:1fr}h1{font-size:30px}.wrap{padding:0 14px}.hero,.panel{padding:20px}}
   </style>
 </head>
 <body>
-  <header class="top"><div class="topin"><div class="brand">소통광산구시설관리공단</div><div class="badge">실제 접수 운영</div></div></header>
+  <header class="top"><div class="topin"><div class="brand">광산구시설관리공단</div><div class="badge">실제 접수 운영</div></div></header>
   <main class="wrap">
     <section class="hero">
       <div><div class="eyebrow">2026년 10월 · 총 5회차</div><h1>문화의 날 참여 신청</h1><p>부서 담당자가 참여 직원을 한 번에 신청하면 공단 취합용 Google Sheets에 자동 저장됩니다.</p></div>
       <div class="meta"><div><span>대상</span><strong>공단 전 직원(환경직 제외)</strong></div><div><span>장소</span><strong>월곡 고려인마을 · 광주비엔날레</strong></div></div>
     </section>
-    <div class="notice"><strong>실제 접수 페이지입니다.</strong> 제출 버튼을 누르면 입력 내용이 부서별 취합 시트에 저장됩니다. 제출 전 이름, 직종, 희망 회차를 꼭 확인해 주세요.</div>
+    <div class="notice"><strong>실제 접수 페이지입니다.</strong> 신규 신청 후 발급되는 접수번호는 수정할 때 필요하므로 꼭 보관해 주세요.</div>
     <section class="schedule" id="schedule"></section>
+
     <section class="panel">
-      <h2>참여자 일괄 신청</h2>
-      <p class="helper">부서 담당자 1명이 해당 부서 신청자를 한 번에 등록할 수 있습니다. 최대 100명까지 등록할 수 있습니다.</p>
-      <div class="grid"><label class="field"><span>부서명 *</span><input id="department" placeholder="예: 경영지원팀"></label><label class="field"><span>담당자 이름 *</span><input id="manager" placeholder="홍길동"></label><label class="field"><span>담당자 연락처 *</span><input id="phone" placeholder="010-0000-0000" inputmode="tel"></label></div>
-
-      <div class="modebox">
-        <div class="mode-title">신청자 입력 방식</div>
-        <div class="mode-tabs">
-          <button class="modebtn active" id="directModeBtn" type="button">직접 입력</button>
-          <button class="modebtn" id="fileModeBtn" type="button">엑셀·CSV 일괄등록</button>
-        </div>
-
-        <div id="directMode">
-          <div class="rowhead"><div><h3>신청자 명단</h3><small>직원별 직종과 희망 회차를 선택하세요.</small></div><button class="secondary" id="addBtn" type="button">+ 신청자 추가</button></div>
-          <div id="people"></div>
-        </div>
-
-        <div id="fileMode" class="hidden">
-          <div class="uploadbox">
-            <strong>엑셀·CSV 파일로 한 번에 등록</strong>
-            <div class="template-note">양식 열은 <b>이름 / 직종 / 희망회차</b> 3개입니다. <b>엑셀 양식은 B열(직종), C열(희망회차)을 클릭하면 오른쪽에 ▼가 나타나며 목록에서 선택</b>할 수 있습니다. CSV는 직접 입력 방식이며 UTF-8 형식을 권장합니다.<br><span class="template-highlight">엑셀 양식 권장 · 파란색 입력칸의 B/C열을 클릭해 주세요.</span></div>
-            <div class="upload-actions">
-              <button class="downloadbtn" id="downloadXlsx" type="button">엑셀 양식 다운로드</button>
-              <button class="downloadbtn" id="downloadCsv" type="button">CSV 양식 다운로드</button>
-            </div>
-            <label class="filepick"><span class="helper">작성한 파일 선택</span><input id="bulkFile" type="file" accept=".xlsx,.xls,.csv,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel"></label>
-            <div id="bulkSummary" class="helper"></div>
-            <div id="bulkPreview" class="preview-wrap"></div>
-            <button id="applyBulk" class="applybtn hidden" type="button">이 명단 적용하기</button>
-          </div>
-        </div>
+      <div class="app-tabs">
+        <button class="app-tab active" id="newTab" type="button">신규 신청</button>
+        <button class="app-tab" id="editTab" type="button">신청 수정</button>
       </div>
 
-      <div class="privacy">입력된 정보는 문화의 날 신청 접수·참여자 확인·일정 안내를 위한 취합 목적으로 사용됩니다. 실제 운영 시 개인정보 보유기간과 파기 기준은 공단 내부 기준에 따라 관리해 주세요.</div>
-      <div class="message" id="msg"></div>
-      <button class="primary" id="submitBtn" type="button">신청 제출</button>
-      <div class="admin-note">※ 전체 신청 현황과 부서별 취합 내용은 관리자용 Google Sheets에서 확인합니다.</div>
+      <div id="lookupPanel" class="lookup hidden">
+        <h2 style="margin-top:0">신청내역 불러오기</h2>
+        <p class="helper">접수번호와 기존 신청 당시 담당자 연락처가 일치해야 수정할 수 있습니다.</p>
+        <div class="lookup-grid">
+          <label class="field"><span>접수번호 *</span><input id="lookupReceipt" placeholder="예: CD26-XXXXXXXXXX"></label>
+          <label class="field"><span>담당자 연락처 *</span><input id="lookupPhone" placeholder="010-0000-0000" inputmode="tel"></label>
+          <button class="secondary" id="lookupBtn" type="button">신청내역 불러오기</button>
+        </div>
+        <div class="message" id="lookupMsg"></div>
+      </div>
+
+      <div id="formPanel">
+        <h2 id="formTitle">참여자 일괄 신청</h2>
+        <p class="helper" id="formHelp">부서 담당자 1명이 해당 부서 신청자를 한 번에 등록할 수 있습니다. 최대 100명까지 등록할 수 있습니다.</p>
+        <div class="grid"><label class="field"><span>부서명 *</span><input id="department" placeholder="예: 경영지원팀"></label><label class="field"><span>담당자 이름 *</span><input id="manager" placeholder="홍길동"></label><label class="field"><span>담당자 연락처 *</span><input id="phone" placeholder="010-0000-0000" inputmode="tel"></label></div>
+
+        <div class="modebox">
+          <div class="mode-title">신청자 입력 방식</div>
+          <div class="mode-tabs">
+            <button class="modebtn active" id="directModeBtn" type="button">직접 입력</button>
+            <button class="modebtn" id="fileModeBtn" type="button">엑셀 일괄등록</button>
+          </div>
+
+          <div id="directMode">
+            <div class="rowhead"><div><h3>신청자 명단</h3><small>직원별 직종과 희망 회차를 선택하세요.</small></div><button class="secondary" id="addBtn" type="button">+ 신청자 추가</button></div>
+            <div id="people"></div>
+          </div>
+
+          <div id="fileMode" class="hidden">
+            <div class="uploadbox">
+              <strong>엑셀 파일로 한 번에 등록</strong>
+              <div class="template-note">양식 열은 <b>이름 / 직종 / 희망회차</b> 3개입니다. 직종과 희망회차는 드롭다운으로 선택할 수 있습니다.<br><span class="template-highlight">엑셀 양식 권장 · 입력 오류를 줄일 수 있습니다.</span></div>
+              <div class="upload-actions"><button class="downloadbtn" id="downloadXlsx" type="button">엑셀 양식 다운로드</button></div>
+              <label class="filepick"><span class="helper">작성한 엑셀 파일 선택</span><input id="bulkFile" type="file" accept=".xlsx,.xls,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel"></label>
+              <div id="bulkSummary" class="helper"></div>
+              <div id="bulkPreview" class="preview-wrap"></div>
+              <button id="applyBulk" class="applybtn hidden" type="button">이 명단 적용하기</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="privacy">입력된 정보는 문화의 날 신청 접수·참여자 확인·일정 안내를 위한 취합 목적으로 사용됩니다. 실제 운영 시 개인정보 보유기간과 파기 기준은 공단 내부 기준에 따라 관리해 주세요.</div>
+        <div class="message" id="msg"></div>
+        <div class="receipt" id="receiptBox"><span>접수번호</span><strong id="receiptText"></strong><small>신청 수정 시 필요하므로 캡처하거나 따로 보관해 주세요.</small></div>
+        <button class="primary" id="submitBtn" type="button">신청 제출</button>
+        <div class="admin-note">※ 전체 신청 현황과 부서별 취합 내용은 관리자용 Google Sheets에서 확인합니다.</div>
+      </div>
     </section>
   </main>
-  <footer>© 소통광산구시설관리공단 · 2026 문화의 날 신청 시스템</footer>
+  <footer>© 광산구시설관리공단 · 2026 문화의 날 신청 시스템</footer>
 
   <iframe name="submitTarget" id="submitTarget" style="display:none"></iframe>
   <form id="bridgeForm" method="post" target="submitTarget" action="https://script.google.com/macros/s/AKfycbzmo2Pa-cMMIjXzuvnnBWaDHwD_ZXaYpQiqhYtV1xry-PzL5N0BiyVXNDUGBsx6zMaZ/exec" style="display:none">
     <input type="hidden" name="payload" id="payloadInput">
   </form>
 
-<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-<script src="./xlsx-template.js?v=20260916-3"></script>
-<script>
-const S=[
- {n:1,d:'10. 2.(금)',p:'광주비엔날레 전시',v:'광주비엔날레전시관(북구 비엔날레로 111)'},
- {n:2,d:'10. 8.(목)',p:'세계음식 만들기 체험',v:'월곡 고려인마을'},
- {n:3,d:'10. 16.(금)',p:'광주비엔날레 전시',v:'광주비엔날레전시관'},
- {n:4,d:'10. 23.(금)',p:'세계음식 만들기 체험',v:'월곡 고려인마을'},
- {n:5,d:'10. 28.(수)',p:'광주비엔날레 전시',v:'광주비엔날레전시관'}
-];
-const types=['일반직','공무직','임원','기타','환경직(신청 제외)'];
-const allowedTypes=['일반직','공무직','임원','기타'];
-const schedule=document.querySelector('#schedule');
-schedule.innerHTML=S.map(x=>`<article class="card"><span class="num">${x.n}회차</span><h3>${x.d} · ${x.p}</h3><p>${x.v}</p></article>`).join('');
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="./xlsx-template.js?v=3"></script>
+  <script>
+    const ENDPOINT='https://script.google.com/macros/s/AKfycbzmo2Pa-cMMIjXzuvnnBWaDHwD_ZXaYpQiqhYtV1xry-PzL5N0BiyVXNDUGBsx6zMaZ/exec';
+    const S=[
+      {n:1,d:'10. 2.(금)',p:'광주비엔날레 전시',v:'광주비엔날레전시관(북구 비엔날레로 111)'},
+      {n:2,d:'10. 8.(목)',p:'세계음식 만들기 체험',v:'월곡 고려인마을'},
+      {n:3,d:'10. 16.(금)',p:'광주비엔날레 전시',v:'광주비엔날레전시관'},
+      {n:4,d:'10. 23.(금)',p:'세계음식 만들기 체험',v:'월곡 고려인마을'},
+      {n:5,d:'10. 28.(수)',p:'광주비엔날레 전시',v:'광주비엔날레전시관'}
+    ];
+    const types=['일반직','공무직','임원','기타','환경직(신청 제외)'];
+    const allowedTypes=['일반직','공무직','임원','기타'];
+    const schedule=document.querySelector('#schedule');
+    schedule.innerHTML=S.map(x=>`<article class="card"><span class="num">${x.n}회차</span><h3>${x.d} · ${x.p}</h3><p>${x.v}</p></article>`).join('');
 
-let idx=0;
-let bulkRows=[];
-const people=document.querySelector('#people');
-const msg=document.querySelector('#msg');
-const submitBtn=document.querySelector('#submitBtn');
-const bridgeForm=document.querySelector('#bridgeForm');
-const payloadInput=document.querySelector('#payloadInput');
-const submitTarget=document.querySelector('#submitTarget');
-const directMode=document.querySelector('#directMode');
-const fileMode=document.querySelector('#fileMode');
-const directModeBtn=document.querySelector('#directModeBtn');
-const fileModeBtn=document.querySelector('#fileModeBtn');
-const bulkFile=document.querySelector('#bulkFile');
-const bulkPreview=document.querySelector('#bulkPreview');
-const bulkSummary=document.querySelector('#bulkSummary');
-const applyBulk=document.querySelector('#applyBulk');
-let waitingForResponse=false;
+    let idx=0,bulkRows=[],waitingForResponse=false,currentAction='create',currentReceiptNo='',authPhone='';
+    const people=document.querySelector('#people'),msg=document.querySelector('#msg'),submitBtn=document.querySelector('#submitBtn'),bridgeForm=document.querySelector('#bridgeForm'),payloadInput=document.querySelector('#payloadInput'),submitTarget=document.querySelector('#submitTarget');
+    const directMode=document.querySelector('#directMode'),fileMode=document.querySelector('#fileMode'),directModeBtn=document.querySelector('#directModeBtn'),fileModeBtn=document.querySelector('#fileModeBtn'),bulkFile=document.querySelector('#bulkFile'),bulkPreview=document.querySelector('#bulkPreview'),bulkSummary=document.querySelector('#bulkSummary'),applyBulk=document.querySelector('#applyBulk');
+    const newTab=document.querySelector('#newTab'),editTab=document.querySelector('#editTab'),lookupPanel=document.querySelector('#lookupPanel'),formPanel=document.querySelector('#formPanel'),lookupMsg=document.querySelector('#lookupMsg'),receiptBox=document.querySelector('#receiptBox'),receiptText=document.querySelector('#receiptText');
 
-function showMessage(text,type='ok'){
-  msg.className=`message ${type}`;
-  msg.textContent=text;
-}
-function setMode(mode){
-  const isDirect=mode==='direct';
-  directMode.classList.toggle('hidden',!isDirect);
-  fileMode.classList.toggle('hidden',isDirect);
-  directModeBtn.classList.toggle('active',isDirect);
-  fileModeBtn.classList.toggle('active',!isDirect);
-}
-directModeBtn.onclick=()=>setMode('direct');
-fileModeBtn.onclick=()=>setMode('file');
-function renumber(){
-  [...document.querySelectorAll('.person')].forEach((row,i)=>{row.querySelector('.idx').textContent=i+1;});
-}
-function makePersonRow(person={}){
-  idx++;
-  const el=document.createElement('div');
-  el.className='person';
-  el.innerHTML=`<div class="idx"></div><label class="field"><span>이름</span><input class="name" placeholder="직원 이름"></label><label class="field"><span>직종</span><select class="type"><option value="">선택</option>${types.map(t=>`<option>${t}</option>`).join('')}</select></label><label class="field"><span>희망 회차</span><select class="session"><option value="">선택</option>${S.map(x=>`<option value="${x.n}">${x.n}회차 · ${x.d} · ${x.p}</option>`).join('')}</select></label><button class="remove" type="button">삭제</button>`;
-  el.querySelector('.name').value=person.name||'';
-  el.querySelector('.type').value=person.type||'';
-  el.querySelector('.session').value=person.session?String(person.session):'';
-  el.querySelector('.remove').onclick=()=>{if(document.querySelectorAll('.person').length>1){el.remove();renumber();}};
-  people.appendChild(el);renumber();
-}
-function add(){
-  if(document.querySelectorAll('.person').length>=100){showMessage('신청자는 최대 100명까지 등록할 수 있습니다.','error');return;}
-  makePersonRow();
-}
-makePersonRow();document.querySelector('#addBtn').onclick=add;
-function resetParticipantRows(){people.innerHTML='';idx=0;makePersonRow();}
-function replaceParticipants(list){
-  people.innerHTML='';idx=0;list.forEach(makePersonRow);if(!list.length)makePersonRow();setMode('direct');showMessage(`파일의 신청자 ${list.length}명이 명단에 반영되었습니다. 제출 전 내용을 확인해 주세요.`,'ok');
-}
-function normalizeHeader(v){return String(v??'').replace(/\s/g,'').toLowerCase();}
-function findColumn(headers,candidates){const normalized=headers.map(normalizeHeader);return normalized.findIndex(h=>candidates.includes(h));}
-function normalizeType(v){const t=String(v??'').trim().replace(/\s+/g,'');if(t.includes('환경직'))return '환경직(신청 제외)';return allowedTypes.find(x=>x===t)||String(v??'').trim();}
-function normalizeSession(v){const text=String(v??'').trim();const match=text.match(/[1-5]/);return match?Number(match[0]):NaN;}
-function validateBulkRows(rows){
-  return rows.map((r,i)=>{const errors=[];const name=String(r.name??'').trim();const type=normalizeType(r.type);const session=normalizeSession(r.session);if(!name)errors.push('이름 누락');if(type.includes('환경직'))errors.push('환경직 제외');else if(!allowedTypes.includes(type))errors.push('직종 오류');if(!Number.isInteger(session)||session<1||session>5)errors.push('회차 오류');return {rowNo:i+2,name,type,session,errors};});
-}
-function escapeHtml(v){return String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));}
-function renderBulkPreview(rows){
-  bulkRows=validateBulkRows(rows).slice(0,100);const tooMany=rows.length>100;const invalid=bulkRows.filter(r=>r.errors.length).length;bulkSummary.textContent=`총 ${bulkRows.length}명 확인 · 정상 ${bulkRows.length-invalid}명 · 오류 ${invalid}명${tooMany?' · 100명 초과 행은 제외됨':''}`;bulkPreview.innerHTML=`<table class="preview-table"><thead><tr><th>행</th><th>이름</th><th>직종</th><th>희망회차</th><th>확인</th></tr></thead><tbody>${bulkRows.map(r=>`<tr><td>${r.rowNo}</td><td>${escapeHtml(r.name)}</td><td>${escapeHtml(r.type)}</td><td>${Number.isFinite(r.session)?r.session:''}</td><td class="${r.errors.length?'bad':'good'}">${r.errors.length?escapeHtml(r.errors.join(', ')):'정상'}</td></tr>`).join('')}</tbody></table>`;applyBulk.classList.toggle('hidden',bulkRows.length===0);applyBulk.disabled=bulkRows.length===0||invalid>0||tooMany;
-}
-function parseMatrix(matrix){
-  if(!Array.isArray(matrix)||!matrix.length)throw new Error('파일에 데이터가 없습니다.');
-  let headerRow=-1,nameCol=-1,typeCol=-1,sessionCol=-1;
-  for(let i=0;i<Math.min(matrix.length,10);i++){
-    const headers=(matrix[i]||[]).map(v=>String(v??'').trim());
-    const n=findColumn(headers,['이름','성명']),t=findColumn(headers,['직종','고용형태','구분']),se=findColumn(headers,['희망회차','회차','신청회차']);
-    if(n>=0&&t>=0&&se>=0){headerRow=i;nameCol=n;typeCol=t;sessionCol=se;break;}
-  }
-  if(headerRow<0)throw new Error('이름 / 직종 / 희망회차 제목 행을 찾을 수 없습니다.');
-  return matrix.slice(headerRow+1).filter(row=>row&&row.some(v=>String(v??'').trim()!=='')).map(row=>({name:row[nameCol],type:row[typeCol],session:row[sessionCol]}));
-}
-function decodeCsv(buffer){
-  let text=new TextDecoder('utf-8').decode(buffer);if(text.includes('\uFFFD')){try{text=new TextDecoder('euc-kr').decode(buffer);}catch(_){}}text=text.replace(/^\uFEFF/,'');const rows=[];let row=[],cell='',quoted=false;for(let i=0;i<text.length;i++){const c=text[i];if(c==='"'){if(quoted&&text[i+1]==='"'){cell+='"';i++;}else quoted=!quoted;}else if(c===','&&!quoted){row.push(cell);cell='';}else if((c==='\n'||c==='\r')&&!quoted){if(c==='\r'&&text[i+1]==='\n')i++;row.push(cell);cell='';if(row.some(v=>v!==''))rows.push(row);row=[];}else cell+=c;}if(cell!==''||row.length){row.push(cell);if(row.some(v=>v!==''))rows.push(row);}return rows;
-}
-bulkFile.addEventListener('change',async()=>{
-  bulkPreview.innerHTML='';bulkSummary.textContent='';applyBulk.classList.add('hidden');const file=bulkFile.files&&bulkFile.files[0];if(!file)return;try{const buffer=await file.arrayBuffer();let matrix;if(file.name.toLowerCase().endsWith('.csv')){matrix=decodeCsv(buffer);}else{if(typeof XLSX==='undefined')throw new Error('엑셀 파일 읽기 모듈을 불러오지 못했습니다. CSV 파일을 이용해 주세요.');const wb=XLSX.read(buffer,{type:'array'});const ws=wb.Sheets[wb.SheetNames[0]];matrix=XLSX.utils.sheet_to_json(ws,{header:1,defval:''});}const rows=parseMatrix(matrix);if(!rows.length)throw new Error('신청자 데이터가 없습니다.');renderBulkPreview(rows);}catch(err){bulkSummary.textContent='';bulkPreview.innerHTML=`<div class="message error" style="display:block">${escapeHtml(err.message||String(err))}</div>`;}
-});
-applyBulk.onclick=()=>{if(applyBulk.disabled)return;replaceParticipants(bulkRows.map(r=>({name:r.name,type:r.type,session:r.session})))};
-function downloadBlob(content,type,filename){const blob=new Blob([content],{type});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);}
-document.querySelector('#downloadCsv').onclick=()=>{const csv='\uFEFF이름,직종,희망회차\r\n';downloadBlob(csv,'text/csv;charset=utf-8','2026_문화의날_신청자양식.csv');};
-const XLSX_TEMPLATE_BASE64=window.XLSX_TEMPLATE_BASE64||'';
-document.querySelector('#downloadXlsx').onclick=()=>{
-  try{const binary=atob(XLSX_TEMPLATE_BASE64);const bytes=new Uint8Array(binary.length);for(let i=0;i<binary.length;i++)bytes[i]=binary.charCodeAt(i);downloadBlob(bytes,'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet','2026_문화의날_신청자_일괄등록_양식.xlsx');}catch(err){showMessage('엑셀 양식 다운로드 중 오류가 발생했습니다. CSV 양식을 이용해 주세요.','error');}
-};
-submitTarget.addEventListener('load',()=>{
-  if(!waitingForResponse)return;waitingForResponse=false;submitBtn.disabled=false;submitBtn.textContent='신청 제출';showMessage('신청이 전송되었습니다. 관리자 취합 시트에서 접수 내역을 확인할 수 있습니다.','ok');resetParticipantRows();bulkFile.value='';bulkPreview.innerHTML='';bulkSummary.textContent='';applyBulk.classList.add('hidden');window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'});
-});
-document.querySelector('#submitBtn').onclick=()=>{
-  const department=document.querySelector('#department').value.trim(),manager=document.querySelector('#manager').value.trim(),phone=document.querySelector('#phone').value.trim(),rows=[...document.querySelectorAll('.person')];if(!department||!manager||!phone){showMessage('부서명, 담당자 이름, 담당자 연락처를 모두 입력해 주세요.','error');return;}if(rows.length>100){showMessage('신청자는 최대 100명까지 등록할 수 있습니다.','error');return;}const participants=[];for(const r of rows){const name=r.querySelector('.name').value.trim(),type=r.querySelector('.type').value,session=r.querySelector('.session').value;if(!name||!type||!session){showMessage('모든 신청자의 이름, 직종, 희망 회차를 입력해 주세요.','error');return;}if(type.includes('환경직')){showMessage('환경직은 이번 신청 대상에서 제외되어 있습니다.','error');return;}participants.push({name,type,session:Number(session)});}if(!confirm(`${department} 신청자 ${participants.length}명을 제출하시겠습니까?`))return;payloadInput.value=JSON.stringify({department,manager,phone,participants});waitingForResponse=true;submitBtn.disabled=true;submitBtn.textContent='전송 중...';showMessage('신청 내용을 전송하고 있습니다. 잠시만 기다려 주세요.','ok');bridgeForm.submit();setTimeout(()=>{if(waitingForResponse){waitingForResponse=false;submitBtn.disabled=false;submitBtn.textContent='신청 제출';showMessage('전송 요청은 완료되었습니다. 관리자 취합 시트에서 저장 여부를 확인해 주세요.','ok');}},8000);
-};
-</script>
+    function showMessage(text,type='ok'){msg.className=`message ${type}`;msg.textContent=text;}
+    function showLookupMessage(text,type='ok'){lookupMsg.className=`message ${type}`;lookupMsg.textContent=text;}
+    function setMode(mode){const isDirect=mode==='direct';directMode.classList.toggle('hidden',!isDirect);fileMode.classList.toggle('hidden',isDirect);directModeBtn.classList.toggle('active',isDirect);fileModeBtn.classList.toggle('active',!isDirect);}
+    directModeBtn.onclick=()=>setMode('direct');fileModeBtn.onclick=()=>setMode('file');
+    function renumber(){[...document.querySelectorAll('.person')].forEach((row,i)=>row.querySelector('.idx').textContent=i+1);}
+    function makePersonRow(person={}){idx++;const el=document.createElement('div');el.className='person';el.innerHTML=`<div class="idx"></div><label class="field"><span>이름</span><input class="name" placeholder="직원 이름"></label><label class="field"><span>직종</span><select class="type"><option value="">선택</option>${types.map(t=>`<option>${t}</option>`).join('')}</select></label><label class="field"><span>희망 회차</span><select class="session"><option value="">선택</option>${S.map(x=>`<option value="${x.n}">${x.n}회차 · ${x.d} · ${x.p}</option>`).join('')}</select></label><button class="remove" type="button">삭제</button>`;el.querySelector('.name').value=person.name||'';el.querySelector('.type').value=person.type||'';el.querySelector('.session').value=person.session?String(person.session):'';el.querySelector('.remove').onclick=()=>{if(document.querySelectorAll('.person').length>1){el.remove();renumber();}};people.appendChild(el);renumber();}
+    function resetParticipants(){people.innerHTML='';idx=0;makePersonRow();}
+    function add(){if(document.querySelectorAll('.person').length>=100){showMessage('신청자는 최대 100명까지 등록할 수 있습니다.','error');return;}makePersonRow();}
+    document.querySelector('#addBtn').onclick=add;makePersonRow();
+
+    function clearForm(){document.querySelector('#department').value='';document.querySelector('#manager').value='';document.querySelector('#phone').value='';resetParticipants();bulkFile.value='';bulkPreview.innerHTML='';bulkSummary.textContent='';applyBulk.classList.add('hidden');setMode('direct');msg.className='message';receiptBox.style.display='none';}
+    function setAppMode(mode){const isNew=mode==='new';newTab.classList.toggle('active',isNew);editTab.classList.toggle('active',!isNew);lookupPanel.classList.toggle('hidden',isNew);formPanel.classList.toggle('hidden',!isNew);lookupMsg.className='message';if(isNew){currentAction='create';currentReceiptNo='';authPhone='';document.querySelector('#formTitle').textContent='참여자 일괄 신청';document.querySelector('#formHelp').textContent='부서 담당자 1명이 해당 부서 신청자를 한 번에 등록할 수 있습니다. 최대 100명까지 등록할 수 있습니다.';submitBtn.textContent='신청 제출';clearForm();}}
+    newTab.onclick=()=>setAppMode('new');editTab.onclick=()=>setAppMode('edit');
+
+    document.querySelector('#lookupBtn').onclick=()=>{
+      const receipt=document.querySelector('#lookupReceipt').value.trim();const phone=document.querySelector('#lookupPhone').value.trim();
+      if(!receipt||!phone){showLookupMessage('접수번호와 담당자 연락처를 입력해 주세요.','error');return;}
+      showLookupMessage('신청내역을 불러오는 중입니다.','ok');
+      const cb='cultureLookup_'+Date.now();let script=document.createElement('script');let timer;
+      window[cb]=(data)=>{clearTimeout(timer);delete window[cb];script.remove();if(!data||!data.ok){showLookupMessage((data&&data.error)||'신청내역을 불러오지 못했습니다.','error');return;}currentAction='update';currentReceiptNo=data.receiptNo;authPhone=phone;document.querySelector('#department').value=data.department||'';document.querySelector('#manager').value=data.manager||'';document.querySelector('#phone').value=data.phone||'';people.innerHTML='';idx=0;(data.participants||[]).forEach(makePersonRow);if(!(data.participants||[]).length)makePersonRow();formPanel.classList.remove('hidden');document.querySelector('#formTitle').textContent='신청내용 수정';document.querySelector('#formHelp').textContent=`접수번호 ${data.receiptNo}의 신청내용입니다. 수정 후 아래 버튼을 눌러 저장하세요.`;submitBtn.textContent='수정 내용 저장';receiptBox.style.display='block';receiptText.textContent=data.receiptNo;showLookupMessage('신청내역을 불러왔습니다.','ok');window.scrollTo({top:formPanel.offsetTop-80,behavior:'smooth'});};
+      script.onerror=()=>{clearTimeout(timer);delete window[cb];script.remove();showLookupMessage('신청내역 조회 중 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.','error');};
+      script.src=`${ENDPOINT}?action=lookup&receiptNo=${encodeURIComponent(receipt)}&phone=${encodeURIComponent(phone)}&callback=${cb}&_=${Date.now()}`;document.body.appendChild(script);timer=setTimeout(()=>{if(window[cb]){delete window[cb];script.remove();showLookupMessage('조회 시간이 초과되었습니다. 접수번호와 연락처를 다시 확인해 주세요.','error');}},10000);
+    };
+
+    function normalizeHeader(v){return String(v??'').replace(/\s/g,'').toLowerCase();}
+    function findColumn(headers,candidates){const normalized=headers.map(normalizeHeader);return normalized.findIndex(h=>candidates.includes(h));}
+    function normalizeType(v){const t=String(v??'').trim().replace(/\s+/g,'');if(t.includes('환경직'))return '환경직(신청 제외)';return allowedTypes.find(x=>x===t)||String(v??'').trim();}
+    function normalizeSession(v){const text=String(v??'').trim();const match=text.match(/[1-5]/);return match?Number(match[0]):NaN;}
+    function validateBulkRows(rows){return rows.map((r,i)=>{const errors=[];const name=String(r.name??'').trim();const type=normalizeType(r.type);const session=normalizeSession(r.session);if(!name)errors.push('이름 누락');if(type.includes('환경직'))errors.push('환경직 제외');else if(!allowedTypes.includes(type))errors.push('직종 오류');if(!Number.isInteger(session)||session<1||session>5)errors.push('회차 오류');return{rowNo:i+2,name,type,session,errors};});}
+    function escapeHtml(v){return String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));}
+    function renderBulkPreview(rows){bulkRows=validateBulkRows(rows).slice(0,100);const tooMany=rows.length>100,invalid=bulkRows.filter(r=>r.errors.length).length;bulkSummary.textContent=`총 ${bulkRows.length}명 확인 · 정상 ${bulkRows.length-invalid}명 · 오류 ${invalid}명${tooMany?' · 100명 초과 행은 제외됨':''}`;bulkPreview.innerHTML=`<table class="preview-table"><thead><tr><th>행</th><th>이름</th><th>직종</th><th>희망회차</th><th>확인</th></tr></thead><tbody>${bulkRows.map(r=>`<tr><td>${r.rowNo}</td><td>${escapeHtml(r.name)}</td><td>${escapeHtml(r.type)}</td><td>${Number.isFinite(r.session)?r.session:''}</td><td class="${r.errors.length?'bad':'good'}">${r.errors.length?escapeHtml(r.errors.join(', ')):'정상'}</td></tr>`).join('')}</tbody></table>`;applyBulk.classList.toggle('hidden',bulkRows.length===0);applyBulk.disabled=bulkRows.length===0||invalid>0||tooMany;}
+    function parseMatrix(matrix){if(!Array.isArray(matrix)||!matrix.length)throw new Error('파일에 데이터가 없습니다.');const headers=(matrix[0]||[]).map(v=>String(v??'').trim());const nameCol=findColumn(headers,['이름','성명']),typeCol=findColumn(headers,['직종','고용형태','구분']),sessionCol=findColumn(headers,['희망회차','회차','신청회차']);if(nameCol<0||typeCol<0||sessionCol<0)throw new Error('첫 행에 이름 / 직종 / 희망회차 열이 필요합니다.');return matrix.slice(1).filter(row=>row&&row.some(v=>String(v??'').trim()!=='')).map(row=>({name:row[nameCol],type:row[typeCol],session:row[sessionCol]}));}
+    bulkFile.addEventListener('change',async()=>{bulkPreview.innerHTML='';bulkSummary.textContent='';applyBulk.classList.add('hidden');const file=bulkFile.files&&bulkFile.files[0];if(!file)return;try{const buffer=await file.arrayBuffer();if(typeof XLSX==='undefined')throw new Error('엑셀 파일 읽기 모듈을 불러오지 못했습니다.');const wb=XLSX.read(buffer,{type:'array'});const ws=wb.Sheets[wb.SheetNames[0]];const matrix=XLSX.utils.sheet_to_json(ws,{header:1,defval:''});const rows=parseMatrix(matrix);if(!rows.length)throw new Error('신청자 데이터가 없습니다.');renderBulkPreview(rows);}catch(err){bulkSummary.textContent='';bulkPreview.innerHTML=`<div class="message error" style="display:block">${escapeHtml(err.message||String(err))}</div>`;}});
+    applyBulk.onclick=()=>{if(applyBulk.disabled)return;people.innerHTML='';idx=0;bulkRows.forEach(r=>makePersonRow({name:r.name,type:r.type,session:r.session}));setMode('direct');showMessage(`엑셀의 신청자 ${bulkRows.length}명이 명단에 반영되었습니다. 제출 전 내용을 확인해 주세요.`,'ok');};
+
+    function downloadBlob(content,type,filename){const blob=new Blob([content],{type});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=filename;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url);}
+    document.querySelector('#downloadXlsx').onclick=()=>{try{const b64=window.XLSX_TEMPLATE_BASE64||'';if(!b64)throw new Error('양식 데이터 없음');const binary=atob(b64),bytes=new Uint8Array(binary.length);for(let i=0;i<binary.length;i++)bytes[i]=binary.charCodeAt(i);downloadBlob(bytes,'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet','2026_문화의날_신청자_일괄등록_양식.xlsx');}catch(err){showMessage('엑셀 양식 다운로드 중 오류가 발생했습니다.','error');}};
+
+    function makeReceiptNo(){const chars='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';let s='CD26-';for(let i=0;i<10;i++)s+=chars[Math.floor(Math.random()*chars.length)];return s;}
+    submitTarget.addEventListener('load',()=>{if(!waitingForResponse)return;waitingForResponse=false;submitBtn.disabled=false;submitBtn.textContent=currentAction==='update'?'수정 내용 저장':'신청 제출';receiptBox.style.display='block';receiptText.textContent=currentReceiptNo;if(currentAction==='update')showMessage('수정 요청이 전송되었습니다. 관리자 취합 시트에서 변경 내용을 확인할 수 있습니다.','ok');else showMessage('신청이 전송되었습니다. 아래 접수번호를 꼭 보관해 주세요.','ok');window.scrollTo({top:receiptBox.offsetTop-120,behavior:'smooth'});});
+
+    submitBtn.onclick=()=>{const department=document.querySelector('#department').value.trim(),manager=document.querySelector('#manager').value.trim(),phone=document.querySelector('#phone').value.trim(),rows=[...document.querySelectorAll('.person')];if(!department||!manager||!phone){showMessage('부서명, 담당자 이름, 담당자 연락처를 모두 입력해 주세요.','error');return;}if(rows.length>100){showMessage('신청자는 최대 100명까지 등록할 수 있습니다.','error');return;}const participants=[];for(const r of rows){const name=r.querySelector('.name').value.trim(),type=r.querySelector('.type').value,session=r.querySelector('.session').value;if(!name||!type||!session){showMessage('모든 신청자의 이름, 직종, 희망 회차를 입력해 주세요.','error');return;}if(type.includes('환경직')){showMessage('환경직은 이번 신청 대상에서 제외되어 있습니다.','error');return;}participants.push({name,type,session:Number(session)});}if(currentAction==='create')currentReceiptNo=makeReceiptNo();const question=currentAction==='update'?`${department} 신청내용을 수정 저장하시겠습니까?`:`${department} 신청자 ${participants.length}명을 제출하시겠습니까?`;if(!confirm(question))return;const payload={action:currentAction,receiptNo:currentReceiptNo,department,manager,phone,participants};if(currentAction==='update')payload.authPhone=authPhone;payloadInput.value=JSON.stringify(payload);waitingForResponse=true;submitBtn.disabled=true;submitBtn.textContent='전송 중...';showMessage('신청 내용을 전송하고 있습니다. 잠시만 기다려 주세요.','ok');bridgeForm.submit();setTimeout(()=>{if(waitingForResponse){waitingForResponse=false;submitBtn.disabled=false;submitBtn.textContent=currentAction==='update'?'수정 내용 저장':'신청 제출';showMessage('전송 요청은 완료되었습니다. 관리자 취합 시트에서 저장 여부를 확인해 주세요.','ok');receiptBox.style.display='block';receiptText.textContent=currentReceiptNo;}},8000);};
+  </script>
 </body>
 </html>
