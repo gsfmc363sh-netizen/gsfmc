@@ -29,11 +29,11 @@
 </main>
 <footer>© 광산구시설관리공단 · 2026 문화의 날 신청 시스템</footer>
 <iframe name="submitTarget" id="submitTarget" style="display:none"></iframe>
-<form id="bridgeForm" method="post" target="submitTarget" action="https://script.google.com/macros/s/AKfycbzmo2Pa-cMMIjXzuvnnBWaDHwD_ZXaYpQiqhYtV1xry-PzL5N0BiyVXNDUGBsx6zMaZ/exec" style="display:none"><input type="hidden" name="payload" id="payloadInput"></form>
+<form id="bridgeForm" method="post" target="submitTarget" action="https://script.google.com/macros/s/AKfycbxDf1DMmOoln7z52-ThnGMTh4O0UD52rMi2iYBdO3eWsWMojPm3rncDuVL-5FqeNLgY/exec" style="display:none"><input type="hidden" name="payload" id="payloadInput"></form>
 <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 <script src="./xlsx-template.js?v=4"></script>
 <script>
-const ENDPOINT='https://script.google.com/macros/s/AKfycbzmo2Pa-cMMIjXzuvnnBWaDHwD_ZXaYpQiqhYtV1xry-PzL5N0BiyVXNDUGBsx6zMaZ/exec';
+const ENDPOINT='https://script.google.com/macros/s/AKfycbxDf1DMmOoln7z52-ThnGMTh4O0UD52rMi2iYBdO3eWsWMojPm3rncDuVL-5FqeNLgY/exec';
 const S=[{n:1,d:'10. 2.(금)',p:'광주비엔날레 전시',v:'광주비엔날레전시관(북구 비엔날레로 111)'},{n:2,d:'10. 8.(목)',p:'세계음식 만들기 체험',v:'월곡 고려인마을'},{n:3,d:'10. 16.(금)',p:'광주비엔날레 전시',v:'광주비엔날레전시관'},{n:4,d:'10. 23.(금)',p:'세계음식 만들기 체험',v:'월곡 고려인마을'},{n:5,d:'10. 28.(수)',p:'광주비엔날레 전시',v:'광주비엔날레전시관'}];
 const types=['일반직','공무직','임원','기타','환경직(신청 제외)'],allowedTypes=['일반직','공무직','임원','기타'];
 document.querySelector('#schedule').innerHTML=S.map(x=>`<article class="card"><span class="num">${x.n}회차</span><h3>${x.d} · ${x.p}</h3><p>${x.v}</p></article>`).join('');
